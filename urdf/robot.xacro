@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+    <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="theta">
+        <link name="caixa">
+            <visual>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                    <geometry>
+                        <box size="1 1 1"/>
+                    </geometry>
+            </visual>
+        </link>
+
+            <joint name="caixa_conector" type="revolute">
+                <axis xyz="0.0 0.0 1"/>
+                <limit lower="1000.0" upper="3.14" effort="3.14" velocity="1"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.5"/>
+                <parent link="caixa"/>
+                <child link="roda"/>
+            </joint>
+
+        <link name="roda">
+            <visual>
+                <origin xyz="1 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <cylinder radius="1" length="2"/>
+                </geometry>
+            </visual>
+        </link>
+    </robot>
